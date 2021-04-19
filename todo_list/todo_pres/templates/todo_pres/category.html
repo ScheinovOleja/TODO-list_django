@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div>
+		<div>
+			<h1>Добавление категорий!</h1>
+			<form action="" method="post">
+				{% csrf_token %}
+				<div>
+					<label for="description" class="label has-text-white-bis">Введите категорию</label>
+					<div>
+						<input type="text" id="description" placeholder="Какого рода у вас задачи?" name="name" required>
+					</div>
+					<div>
+						<button name="Add" type="submit">
+							<span>Добавить категорию</span>
+						</button>
+						<button name="Delete" type="submit">
+							<span>Удалить категорию</span>
+						</button>
+					</div>
+				</div>
+				<div>
+					{% for category in categories %}
+						<div>
+							<label>
+								<input type="checkbox" name="check" value="{{ category.id }}">
+								<span>{{ category.name }}</span>
+							</label>
+						</div>
+					{% endfor %}
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

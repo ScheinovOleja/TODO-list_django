@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Детальная информация{% endblock title %}
+{% block header %}<h1>Детально о {{ task.title }}</h1>{% endblock header %}
+{% block content %}
+	<div>
+		<ul>
+			<li>Задача: {{ task.title }}</li>
+			<li>Описание задачи: {{ task.content }}</li>
+			<li>Создано: {{ task.creation_date }}</li>
+			<li>Выполнить до: {{ task.deadline }}</li>
+		</ul>
+		<a href="{% url 'edit_task' task.id %}">Редактировать задачу</a>
+		<form action="" method="post">
+			{% csrf_token %}
+			<button type="submit" name="Delete">Удалить задачу</button>
+		</form>
+
+	</div>
+{% endblock content %}

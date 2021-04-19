@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Default title{% endblock title %}</title>
+	<style>
+        li {
+            list-style-type: none;
+        }
+	</style>
+</head>
+<body>
+<header>{% block header %}{% endblock header %}</header>
+<main>{% block content %}{% endblock content %}</main>
+<footer>{% block footer %}
+	<a href="{% url 'all_task' %}">
+		<b>На главную!</b>
+	</a>
+{% endblock footer %}</footer>
+</body>
+</html>

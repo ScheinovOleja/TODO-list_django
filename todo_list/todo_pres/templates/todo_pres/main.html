@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Все задачи{% endblock title %}
+{% block header %}<h1>Список всех задач!</h1>{% endblock header %}
+{% block content %}
+	{% for task in tasks %}
+		<div>
+			<a href="{% url 'detail_task' task.id %}">Название: {{ task.title }}</a>
+		</div>
+	{% endfor %}
+	<a href="{% url 'create_task'%}">Создать задачу</a>
+{% endblock content %}
